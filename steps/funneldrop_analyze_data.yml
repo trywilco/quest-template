@@ -1,0 +1,51 @@
+id: funneldrop_analyze_data
+hints:
+- Try to find what all the users that drop in the funnel have in common
+startFlow:
+  do:
+  - actionId: bot_message
+    params:
+      person: head-of-rd
+      messages:
+      - text: "So, We've identified a very concerning drop on our website. Here’s a data dump of our analytics with the recent traffic and churned users. Can you please have a look, identify the problem, and fix it? [You can find the dump here](https://drive.google.com/file/d/1ax-K7cpTp24fDZaNZNRINX3FJT6BiDv6/view)."
+        delay: 2000
+      - text: "Once you’ve found it, please drop me a message here and let me know what type of users are dropping - so we'll be able to understand the impact and start working on a solution."
+        delay: 3500
+trigger:
+  type: user_message_to_head-of-rd
+  flowNode:
+    if:
+      conditions:
+      - conditionId: text_contains_strings
+        params:
+          text: "${userMessageText}"
+          strings:
+          - - mobile
+          - - non web
+          - - android
+            - ios
+          - - android
+            - iphone
+          - - android
+            - mobile
+          - - iphone
+            - mobile
+          - - ios
+            - mobile
+      then:
+        do:
+        - actionId: bot_message
+          params:
+            person: head-of-rd
+            messages:
+            - text: Good catch! I'll let the support team know.
+              delay: 1300
+        - actionId: finish_step
+      else:
+        do:
+        - actionId: bot_message
+          params:
+            person: head-of-rd
+            messages:
+            - text: Try again! I'm sure you'll figure this out.
+              delay: 2500

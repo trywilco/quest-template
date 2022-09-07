@@ -1,0 +1,62 @@
+id: funneldrop_fixing_bug_pr
+hints:
+- Try to inspect the problematic view and see where it is on the screen
+startFlow:
+  do:
+  - actionId: bot_message
+    params:
+      person: head-of-rd
+      messages:
+      - text: "OK, I think we have everything we need. Can you please **fix the code** and **open a PR**, so we can release a new version to production?"
+        delay: 1500
+githubActions:
+  frontend:
+    capabilities:
+    - jest-puppeteer
+    - puppeteer
+    testFile: "profile.test.js"
+trigger:
+  type: github_pr_lifecycle_status
+  flowNode:
+    switch:
+      key: "${eventType}"
+      cases:
+        github_pr_opened:
+          do:
+          - actionId: bot_message
+            params:
+              person: head-of-rd
+              messages:
+              - text: "On it, I'll review the changes right away."
+                delay: 1000
+          - actionId: github_pr_comment
+            params:
+              person: head-of-rd
+              message: "On it, I'll review the changes right away."
+        github_pr_workflow_complete_success:
+          do:
+          - actionId: bot_message
+            params:
+              person: head-of-rd
+              messages:
+              - text: "Nailed it! Excellent job @${user.githubuser}! You can now merge the PR."
+                delay: 2000
+          - actionId: github_pr_approve
+            params:
+              person: head-of-rd
+              message: "Nailed it! Excellent job @${user.githubuser}! You can now merge the PR."
+        github_pr_workflow_complete_failure:
+          do:
+          - actionId: bot_message
+            params:
+              person: head-of-rd
+              messages:
+              - text: "Make sure your fix passes all the checks, then try again please."
+                delay: 3000
+          - actionId: github_pr_reject
+            params:
+              person: head-of-rd
+              message: "Looks like this code change didn’t fix the problem. Can you take a second look?"
+        github_pr_merged:
+          do:
+          - actionId: finish_step

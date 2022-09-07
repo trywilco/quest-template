@@ -1,0 +1,22 @@
+name: upload draft
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  upload-draft:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          # Make sure the actual branch is checked out when running on pull requests
+          ref: ${{ github.head_ref }}
+
+      - name: Upload Quest
+        uses: trywilco/uploadQuestAction@main
+        with:
+          quest-editor-user-token: ${{ secrets.QUESTS_EDITOR_TOKEN }}
+          quest-editor-user-email: your@email.address

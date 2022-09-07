@@ -1,0 +1,35 @@
+id: mobile-responsiveness
+title: Funnel Drop
+description: "What’s worse than a bug? A bug that happens in the production environment! \nIt affects real users, who often have pitchforks and torches and would not hesitate to use them on you. Time to learn how to handle such bugs—from getting a support ticket, through bug replication, to making sure it can’t bug (ha!) anyone ever again."
+summary: "Welcome to real life - where a commit on one side of the world affects users on the other side. Most of the problems you’ll encounter won’t be as straightforward, and we’ll first need to dive into the data to analyze what exactly the problem is.\n\nFinding needles in haystacks is a crucial part of every engineer's work. No two bugs are the same, but the process by which they’re eliminated often begins with cutting and slicing data until we isolate the exact problem. Then we need to reproduce it locally as it’s the only way to know that we are fixing the problem. Finally, it’s time to fix the problem and deploy it to production. \n\nThe reproduction, by the way, can be a challenge in itself, as developing on a desktop with a stable and fast internet connection will give you the experience of a certain subset of your users. Others might use the product on a different type of device or with very limited bandwidth— circumstances that can expose bugs. Luckily, we have enough tools that let us mimic different users."
+level: beginner
+steps:
+- funneldrop_analyze_data
+- funneldrop_reproduce_locally
+- funneldrop_fixing_bug_pr
+duration: 1.5
+skills:
+- frontend
+- debugging
+- observability
+- communication
+questDependency: docker_localsetup
+slogan: It's time for...
+messages:
+  questStarted:
+    person: head-of-rd
+    messages:
+    - text: "https://thumbs.gfycat.com/AnguishedAngryAlaskajingle-size_restricted.gif"
+      delay: 1000
+    - text: "Before you do anything else, please **run the following command** on your repo: `${scriptCommand}`, and **let me know** once you're done."
+      delay: 1300
+  questStartedNotReady:
+    person: head-of-rd
+    messages:
+    - text: "Let me know when you are ready."
+      delay: 300
+  questFinished:
+    person: head-of-rd
+    messages:
+    - text: "Great job! You've fixed the bug. I’m so proud of you 😀\nWe still have a lot of work ahead of us, so [click here](${platform.home}) once you're ready for your next challenge, ok?"
+      delay: 1500
