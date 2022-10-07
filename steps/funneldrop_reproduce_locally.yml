@@ -7,7 +7,7 @@ startFlow:
   do:
   - actionId: bot_message
     params:
-      person: head-of-rd
+      person: keen
       messages:
       - text: "Now that we know which users are affected, go ahead and fix the bug!"
         delay: 1300
@@ -16,7 +16,9 @@ startFlow:
       - text: "It’s not that I don’t trust you, but the management definitely doesn’t, so please begin by **reproducing the bug locally** and sending me the **URL of the path** where you saw the issue. Then we’ll try to fix it on your machine, and only if it works, we’ll fix it in production."
         delay: 3500
 trigger:
-  type: user_message_to_head-of-rd
+  type: user_message
+  params: 
+    person: keen
   flowNode:
     if:
       conditions:
@@ -28,7 +30,7 @@ trigger:
         do:
         - actionId: bot_message
           params:
-            person: head-of-rd
+            person: keen
             messages:
             - text: "Wow, that is indeed a problematic screen! Looks like we forgot about mobile devices when we created this screen."
               delay: 1500
@@ -37,7 +39,7 @@ trigger:
         do:
         - actionId: bot_message
           params:
-            person: head-of-rd
+            person: keen
             messages:
             - text: "Umm, that doesn't look right. Maybe it's a different URL?"
               delay: 1400

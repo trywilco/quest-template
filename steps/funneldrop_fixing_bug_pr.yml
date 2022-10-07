@@ -5,7 +5,7 @@ startFlow:
   do:
   - actionId: bot_message
     params:
-      person: head-of-rd
+      person: keen
       messages:
       - text: "OK, I think we have everything we need. Can you please **fix the code** and **open a PR**, so we can release a new version to production?"
         delay: 1500
@@ -25,37 +25,37 @@ trigger:
           do:
           - actionId: bot_message
             params:
-              person: head-of-rd
+              person: keen
               messages:
               - text: "On it, I'll review the changes right away."
                 delay: 1000
           - actionId: github_pr_comment
             params:
-              person: head-of-rd
+              person: keen
               message: "On it, I'll review the changes right away."
         github_pr_workflow_complete_success:
           do:
           - actionId: bot_message
             params:
-              person: head-of-rd
+              person: keen
               messages:
               - text: "Nailed it! Excellent job @${user.githubuser}! You can now merge the PR."
                 delay: 2000
           - actionId: github_pr_approve
             params:
-              person: head-of-rd
+              person: keen
               message: "Nailed it! Excellent job @${user.githubuser}! You can now merge the PR."
         github_pr_workflow_complete_failure:
           do:
           - actionId: bot_message
             params:
-              person: head-of-rd
+              person: keen
               messages:
               - text: "Make sure your fix passes all the checks, then try again please."
                 delay: 3000
           - actionId: github_pr_reject
             params:
-              person: head-of-rd
+              person: keen
               message: "Looks like this code change didn’t fix the problem. Can you take a second look?"
         github_pr_merged:
           do:
