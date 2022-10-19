@@ -23,11 +23,7 @@ For each step, describle all actions the user needs to perform to complete the s
 Before submitting your quest for review, test your quest in snack and check the instructions you wrote. Make sure that by following these instructions, you are able to successfully complete the quest.  
 ### Instructions for completing the quest: 
 #### Step 1 [step id]: 
-1.  
-2. 
-3.  
+ 
 #### Step 2 [step id]:
-1. 
-2. 
-3. 
+
 ...
