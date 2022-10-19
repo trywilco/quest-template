@@ -1,4 +1,6 @@
 id: funneldrop_fixing_bug_pr
+learningObjectives: 
+- Fixing a bug 
 hints:
 - Try to inspect the problematic view and see where it is on the screen
 startFlow:
