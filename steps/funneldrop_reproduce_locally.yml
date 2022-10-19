@@ -1,4 +1,6 @@
 id: funneldrop_reproduce_locally
+learningObjectives: 
+- Reproducing a bug locally 
 hints:
 - All modern web browsers can show you what your website looks like on mobile, so
   you'll be able to easily debug and develop for mobile. You can use the developer
