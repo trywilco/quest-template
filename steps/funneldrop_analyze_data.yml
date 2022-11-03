@@ -20,22 +20,11 @@ trigger:
   flowNode:
     if:
       conditions:
-      - conditionId: text_contains_strings
+      - conditionId: text_match_regex
         params:
           text: "${userMessageText}"
-          strings:
-          - - mobile
-          - - non web
-          - - android
-            - ios
-          - - android
-            - iphone
-          - - android
-            - mobile
-          - - iphone
-            - mobile
-          - - ios
-            - mobile
+          regex: mobile|android|ios|iphobe|non web
+          flags: i
       then:
         do:
         - actionId: bot_message
