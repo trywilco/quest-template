@@ -1,5 +1,8 @@
 # quest-template
 
+Not sure how to fill this README? Check out our [quest submisssion checklist](https://dev.trywilco.com/docs/submitting-your-quest-for-review/quest-submission-checklist.html).
+
+
 ## Quest Details 
 #### title: 
 #### level: 
