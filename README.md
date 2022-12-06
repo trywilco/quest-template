@@ -6,6 +6,9 @@
 #### skills:
 #### dependencies: 
 
+#### Email address Wilco should use to forward Support issues to you: 
+#### Link to hi-res company logo (if relevant): 
+
 
 ## Overview 
 Explain what the quest is about and describe the main task the user needs to perform in this quest. 
