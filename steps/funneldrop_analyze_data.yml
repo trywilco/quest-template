@@ -23,7 +23,7 @@ trigger:
       - conditionId: text_match_regex
         params:
           text: "${userMessageText}"
-          regex: mobile|android|ios|iphobe|non web
+          regex: mobile|android|ios|iphone|non web
           flags: i
       then:
         do:
