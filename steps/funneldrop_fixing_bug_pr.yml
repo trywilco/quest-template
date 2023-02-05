@@ -15,7 +15,6 @@ githubActions:
   frontend:
     capabilities:
     - jest-puppeteer
-    - puppeteer
     testFile: "profile.test.js"
 trigger:
   type: github_pr_lifecycle_status
