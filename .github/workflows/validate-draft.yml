@@ -1,11 +1,9 @@
-name: Upload draft
+name: Validate draft
 on:
-  push:
-    branches:
-      - main
+  pull_request:
 
 jobs:
-  upload-draft:
+  validate-draft:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -15,8 +13,9 @@ jobs:
           # Make sure the actual branch is checked out when running on pull requests
           ref: ${{ github.head_ref }}
 
-      - name: Upload Quest
+      - name: Validate Quest
         uses: trywilco/uploadQuestAction@main
         with:
           quest-editor-user-token: ${{ secrets.QUESTS_EDITOR_TOKEN }}
-          quest-editor-user-email: your@email.address
+          quest-editor-user-email: quests@wilcohq.com
+          only-validate: true
